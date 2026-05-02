@@ -1,0 +1,162 @@
+[
+    {
+        "categoryId": "starter",
+        "category": "Starter",
+        "categoryImage": "/assets/cat-01-950x1330.jpg.webp",
+        "categoryDescription": "Begin your culinary journey with our exquisite selection of handcrafted appetizers.",
+        "items": [
+            {
+                "id": "s1",
+                "name": "STUFFED MUSHROOMS",
+                "description": "Flavorful, filled with panko bread crumbs, pine nuts, parsley, sun-tomatoes, and cheese.",
+                "price": 25.50,
+                "image": "/assets/menu-image-1.png",
+                "isNew": false
+            },
+            {
+                "id": "s2",
+                "name": "ITALIAN PASTA",
+                "description": "Greek yogurt filling instead of a traditional cream cheese one.",
+                "price": 14.50,
+                "image": "/assets/menu-image-2.png",
+                "isNew": true
+            },
+            {
+                "id": "s3",
+                "name": "TURKEY SANDWICH",
+                "description": "Drizzle these colorful sandwich with an easy balsamic for a pop of sweet flavor.",
+                "price": 19.50,
+                "image": "/assets/menu-image-3.png",
+                "isNew": false
+            },
+            {
+                "id": "s4",
+                "name": "GREEK SALAD",
+                "description": "Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.",
+                "price": 10.50,
+                "image": "/assets/menu-image-6.png",
+                "isNew": false
+            }
+        ]
+    },
+    {
+        "categoryId": "main-dishes",
+        "category": "Main Dishes",
+        "categoryImage": "/assets/main-dish-main.jpg.webp",
+        "categoryDescription": "Savor our meticulously prepared entrees, crafted to delight your palate.",
+        "items": [
+            {
+                "id": "m1",
+                "name": "BEEF TARTARE",
+                "description": "Flavorful, filled with panko bread crumbs, pine nuts, parsley, sun-dried tomatoes, and cheese.",
+                "price": 30.50,
+                "image": "/assets/menu-image-5.png",
+                "isNew": false
+            },
+            {
+                "id": "m2",
+                "name": "LASAGNE",
+                "description": "Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.",
+                "price": 19.50,
+                "image": "/assets/menu-image-8.png",
+                "isNew": true
+            },
+            {
+                "id": "m3",
+                "name": "BUTTERNUT PUMPKIN",
+                "description": "Greek yogurt filling instead of a traditional cream cheese one.",
+                "price": 19.50,
+                "image": "/assets/menu-image-10.png",
+                "isNew": true
+            },
+            {
+                "id": "m4",
+                "name": "CAPRESE SKEWERS",
+                "description": "Drizzle these colorful skewers with an easy balsamic for a pop of sweet flavor.",
+                "price": 19.50,
+                "image": "/assets/menu-image-12.png",
+                "isNew": false
+            }
+        ]
+    },
+    {
+        "categoryId": "drinks",
+        "category": "Drinks",
+        "categoryImage": "/assets/drinks-main.jpg.webp",
+        "categoryDescription": "Refresh yourself with our signature cocktails and classic beverages.",
+        "items": [
+            {
+                "id": "d1",
+                "name": "MARTINI",
+                "description": "A classic martini is made with gin, dry vermouth, and a lemon peel or olives for garnish.",
+                "price": 19.50,
+                "image": "/assets/drink-1.png",
+                "isNew": false
+            },
+            {
+                "id": "d2",
+                "name": "MARGARITA",
+                "description": "A classic margarita contains tequila, orange liqueur, and fresh lime juice.",
+                "price": 15.50,
+                "image": "/assets/drink-3.png",
+                "isNew": false
+            },
+            {
+                "id": "d3",
+                "name": "OLD FASHIONED",
+                "description": "The drink is typically made with bourbon or rye whiskey and sweetened with a sugar cube.",
+                "price": 9.50,
+                "image": "/assets/drink-4.png",
+                "isNew": true
+            },
+            {
+                "id": "d4",
+                "name": "MOJITO",
+                "description": "A Mojito is made with white rum, fresh mint leaves, fresh lime juice, sugar.",
+                "price": 9.50,
+                "image": "/assets/drink-6.png",
+                "isNew": true
+            }
+        ]
+    },
+    {
+        "categoryId": "desserts",
+        "category": "Desserts",
+        "categoryImage": "/assets/desserts-main.jpg.webp",
+        "categoryDescription": "Indulge in our decadent sweets to perfectly conclude your meal.",
+        "items": [
+            {
+                "id": "ds1",
+                "name": "CHOCOLATE MOUSSE",
+                "description": "chocolate, heavy cream, eggs (yolks and whites, separated), and sugar as the core ingredients.",
+                "price": 15.50,
+                "image": "/assets/dessertdish1.png",
+                "isNew": false
+            },
+            {
+                "id": "ds2",
+                "name": "PAVLOVA",
+                "description": "egg, sugar, cornstarch, and an acid like vinegar or lemon juice for the meringue base.",
+                "price": 11.50,
+                "image": "/assets/dessertdish2.png",
+                "isNew": false
+            },
+            {
+                "id": "ds3",
+                "name": "APPLE CRUMBLE",
+                "description": "apples, flour, sugar (granulated and/or brown), and butter for both the filling and topping.",
+                "price": 13.50,
+                "image": "/assets/dessertdish3.png",
+                "isNew": false
+            },
+            {
+                "id": "ds4",
+                "name": "CRÈME BRÛLÉE",
+                "description": "heavy cream, egg yolks, sugar (for the custard and topping), and vanilla.",
+                "price": 9.50,
+                "image": "/assets/cdessertdish4.png",
+                "isNew": false
+            }
+        ]
+    }
+]
