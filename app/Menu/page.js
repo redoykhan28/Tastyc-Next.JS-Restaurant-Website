@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fraunces, Urbanist, Herr_Von_Muellerhoff } from "next/font/google";
-import Testimonial from "../Component/Homapage/Testimonial/Testimonial";
 import Reservation from "../Component/Homapage/Reservation/Reservation";
+import menuItems from "@/public/data/menu.json";
 
 // Initialize Fonts
 const fraunces = Fraunces({
@@ -24,11 +24,6 @@ const herrVonMuellerhoff = Herr_Von_Muellerhoff({
 });
 
 export default async function MainMenuPage() {
-    // Fetch all categories from your local JSON
-    const res = await fetch("http://localhost:3000/data/menu.json", {
-        cache: "no-store",
-    });
-    const menuItems = await res.json();
 
     return (
         <main className="bg-[#18312E] min-h-screen w-full flex flex-col">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fraunces, Urbanist } from "next/font/google";
 import Reservation from "@/app/Component/Homapage/Reservation/Reservation";
+import allMenus from "@/public/data/menu.json";
 
 // Initialize Fonts
 const fraunces = Fraunces({
@@ -20,12 +21,6 @@ export default async function SingleCategoryPage({ params }) {
     // 1. Safely unwrap params (Required for Next.js 15+)
     const resolvedParams = await params;
     const requestedId = resolvedParams.id;
-
-    // 2. Fetch the data
-    const res = await fetch("http://localhost:3000/data/menu.json", {
-        cache: "no-store",
-    });
-    const allMenus = await res.json();
 
     // 3. Find the specific category using a case-insensitive match
     const currentCategory = allMenus.find(

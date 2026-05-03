@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fraunces, Urbanist, Herr_Von_Muellerhoff } from "next/font/google";
+import menuItems from "@/public/data/menu.json";
 
 // Initialize Fonts
 const fraunces = Fraunces({
@@ -22,10 +23,6 @@ const herrVonMuellerhoff = Herr_Von_Muellerhoff({
 });
 
 export default async function MenuGrid() {
-    const res = await fetch("http://localhost:3000/data/menu.json", {
-        cache: "no-store",
-    });
-    const menuItems = await res.json();
 
     // Show only the first 3 categories
     const displayedCategories = menuItems.slice(0, 3);

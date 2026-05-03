@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Fraunces, Urbanist } from "next/font/google";
 import Link from "next/link";
+
+// 1. IMPORT YOUR JSON DIRECTLY! 
+// Adjust this path if your json is not in the public folder.
+import menuData from "@/public/data/menu.json";
 
 // Initialize Fonts
 const fraunces = Fraunces({
@@ -19,35 +23,15 @@ const urbanist = Urbanist({
 });
 
 export default function MenuSection() {
-    const [menuData, setMenuData] = useState([]);
-    const [activeTab, setActiveTab] = useState("");
-
-    // Fetch data on component mount
-    useEffect(() => {
-        const fetchMenu = async () => {
-            try {
-                const response = await fetch('/data/menu.json');
-                const data = await response.json();
-
-                setMenuData(data);
-                // Set the first category as the default active tab
-                if (data.length > 0) {
-                    setActiveTab(data[0].categoryId);
-                }
-            } catch (error) {
-                console.error("Failed to fetch menu:", error);
-            }
-        };
-
-        fetchMenu();
-    }, []);
+    // We can initialize the active tab immediately using the first item in our imported JSON
+    const [activeTab, setActiveTab] = useState(menuData[0]?.categoryId || "");
 
     // Find the currently selected category object based on the activeTab
     const currentCategory = menuData.find(cat => cat.categoryId === activeTab);
     const currentItems = currentCategory?.items || [];
 
-    // Prevent rendering before data is fetched to avoid errors
-    if (menuData.length === 0) {
+    // If for some reason the JSON is empty, return null
+    if (!menuData || menuData.length === 0) {
         return <section className="w-full bg-[#18312E] pt-24 pb-32 min-h-[800px]"></section>;
     }
 
@@ -117,7 +101,7 @@ export default function MenuSection() {
                     {/* Left Side: Dynamic Menu List */}
                     <div className="w-full lg:w-[45%]">
                         <h3 className={`${fraunces.className} text-[35px] md:text-[45px] text-white mb-10 text-center md:text-left`}>
-                            {currentCategory.category}
+                            {currentCategory?.category}
                         </h3>
 
                         <div className="flex flex-col gap-10">
@@ -181,9 +165,9 @@ export default function MenuSection() {
                                 {/* Arch Image Wrapper */}
                                 <div className="relative w-full aspect-[4/4.5] rounded-t-[1000px] overflow-hidden z-10 bg-black/20 shadow-2xl">
                                     <Image
-                                        src={currentCategory.categoryImage}
+                                        src={currentCategory?.categoryImage}
                                         fill
-                                        alt={`${currentCategory.category} category`}
+                                        alt={`${currentCategory?.category} category`}
                                         className="object-cover"
                                     />
                                 </div>
@@ -195,7 +179,7 @@ export default function MenuSection() {
                                     className={`${fraunces.className} text-[#E6B15F] text-[60px] xl:text-[80px] uppercase opacity-90 leading-none tracking-[0.1em]`}
                                     style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
                                 >
-                                    {currentCategory.category}
+                                    {currentCategory?.category}
                                 </span>
                             </div>
 
@@ -209,9 +193,11 @@ export default function MenuSection() {
                 <p className={`${urbanist.className} text-white text-[16px] md:text-[18px] mb-8`}>
                     During winter daily from <span className="text-[#E6B15F]">7:00 pm</span> to <span className="text-[#E6B15F]">9:00 pm</span>
                 </p>
-                <Link href={'/Menu'}><button className={`${urbanist.className} px-8 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300 cursor-pointer`}>
-                    View All Menu
-                </button></Link>
+                <Link href={'/Menu'}>
+                    <button className={`${urbanist.className} px-8 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300 cursor-pointer`}>
+                        View All Menu
+                    </button>
+                </Link>
             </div>
 
         </section>
