@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Fraunces, Urbanist } from "next/font/google";
+import Link from "next/link";
 
 // 1. Initialize Fonts
 const fraunces = Fraunces({
@@ -131,9 +132,9 @@ export default function Story() {
                             </p>
                         </div>
 
-                        <button className={`${urbanist.className} px-8 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300`}>
+                        <Link href={'/about'}><button className={`${urbanist.className} px-8 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300 cursor-pointer`}>
                             Learn More
-                        </button>
+                        </button></Link>
                     </div>
                 </div>
 

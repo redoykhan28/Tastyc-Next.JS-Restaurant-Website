@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Fraunces, Urbanist } from "next/font/google";
+import Link from "next/link";
 
 // Initialize Fonts
 const fraunces = Fraunces({
@@ -131,9 +132,9 @@ export default function Services() {
 
             {/* --- BOTTOM: Contact Button --- */}
             <div className="flex justify-center mt-20 px-6">
-                <button className={`${urbanist.className} px-10 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300`}>
+                <Link href={'/contact'}> <button className={`${urbanist.className} px-10 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300 cursor-pointer`}>
                     Contact Us
-                </button>
+                </button></Link>
             </div>
 
         </section>

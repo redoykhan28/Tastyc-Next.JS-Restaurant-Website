@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Fraunces, Urbanist } from "next/font/google";
+import Link from "next/link";
 
 // Initialize Fonts
 const fraunces = Fraunces({
@@ -80,8 +81,8 @@ export default function MenuSection() {
                             <button
                                 onClick={() => setActiveTab(tab.categoryId)}
                                 className={`pb-2 border-b-[2px] transition-all duration-300 uppercase ${activeTab === tab.categoryId
-                                        ? "text-white border-[#E6B15F]"
-                                        : "text-white/60 border-transparent hover:text-white"
+                                    ? "text-white border-[#E6B15F]"
+                                    : "text-white/60 border-transparent hover:text-white"
                                     }`}
                             >
                                 {tab.category}
@@ -102,7 +103,7 @@ export default function MenuSection() {
                     src="/assets/menu-bg-paper.jpg"
                     fill
                     alt="Paper texture background"
-                    className="object-cover z-2 opacity-90 px-18"
+                    className="object-cover z-2 opacity-90 px-0 md:px-18"
                 />
 
                 {/* Left Side Pattern Graphic */}
@@ -111,17 +112,17 @@ export default function MenuSection() {
                 </div>
 
                 {/* Content Wrapper inside the paper background with proper padding */}
-                <div className="relative z-20 w-full flex flex-col lg:flex-row items-center justify-between py-16 px-12 md:px-20 lg:pl-32 lg:pr-12">
+                <div className="relative z-20 w-full flex flex-col lg:flex-row items-center justify-between py-16 px-6 md:px-20 lg:pl-32 lg:pr-12">
 
                     {/* Left Side: Dynamic Menu List */}
                     <div className="w-full lg:w-[45%]">
-                        <h3 className={`${fraunces.className} text-[35px] md:text-[45px] text-white mb-10`}>
+                        <h3 className={`${fraunces.className} text-[35px] md:text-[45px] text-white mb-10 text-center md:text-left`}>
                             {currentCategory.category}
                         </h3>
 
                         <div className="flex flex-col gap-10">
                             {currentItems.map((item) => (
-                                <div key={item.id} className="flex gap-6 items-start">
+                                <div key={item.id} className="flex gap-4 md:gap-6 items-start">
                                     {/* Item Image */}
                                     <div className="w-[75px] h-[75px] md:w-[85px] md:h-[85px] rounded-full overflow-hidden flex-shrink-0">
                                         <Image
@@ -133,27 +134,33 @@ export default function MenuSection() {
                                         />
                                     </div>
 
-                                    {/* Item Details */}
-                                    <div className="flex-1 pt-1">
-                                        <div className="flex items-baseline gap-4 mb-2">
-                                            <h4 className={`${urbanist.className} text-white text-[15px] md:text-[17px] font-bold tracking-wide flex items-center gap-3 whitespace-nowrap uppercase`}>
+                                    {/* Item Details - min-w-0 prevents flexbox blowout on mobile */}
+                                    <div className="flex-1 pt-1 min-w-0">
+
+                                        {/* Title & Price Row: Stack vertically on mobile, horizontally on desktop */}
+                                        <div className="flex flex-col md:flex-row md:items-end gap-1 md:gap-4 mb-2 w-full">
+
+                                            {/* Title with wrapping enforced */}
+                                            <h4 className={`${urbanist.className} text-white text-[15px] md:text-[17px] font-bold tracking-wide flex flex-wrap items-center gap-2 break-words whitespace-normal uppercase`}>
                                                 {item.name}
                                                 {item.isNew && (
-                                                    <span className="bg-[#E6B15F] text-[#111] text-[10px] font-bold px-2 py-[2px] rounded-sm tracking-wider">
+                                                    <span className="bg-[#E6B15F] text-[#111] text-[10px] font-bold px-2 py-[2px] rounded-sm tracking-wider shrink-0">
                                                         NEW
                                                     </span>
                                                 )}
                                             </h4>
 
-                                            {/* Dotted Line connecting name to price */}
-                                            <div className="flex-1 border-b border-dashed border-white/30 relative top-[-6px]"></div>
+                                            {/* Dotted Line: Hidden on mobile to prevent messy wrapping, visible on md+ */}
+                                            <div className="hidden md:block flex-1 border-b border-dashed border-white/30 relative top-[-6px]"></div>
 
-                                            <span className={`${urbanist.className} text-[#E6B15F] text-[16px] md:text-[18px] font-medium`}>
-                                                ${item.price.toFixed(2)}
+                                            {/* Price */}
+                                            <span className={`${urbanist.className} text-[#E6B15F] text-[16px] md:text-[18px] font-medium shrink-0 mt-1 md:mt-0`}>
+                                                ${typeof item.price === 'number' ? item.price.toFixed(2) : item.price}
                                             </span>
                                         </div>
 
-                                        <p className={`${urbanist.className} text-white/50 text-[14px] leading-[1.8] max-w-[380px]`}>
+                                        {/* Description with wrapping enforced */}
+                                        <p className={`${urbanist.className} text-white/50 text-[13px] md:text-[14px] leading-[1.6] md:leading-[1.8] w-full max-w-[380px] break-words whitespace-normal`}>
                                             {item.description}
                                         </p>
                                     </div>
@@ -166,7 +173,7 @@ export default function MenuSection() {
                     <div className="hidden lg:flex relative items-center justify-end w-[50%] mt-10 lg:mt-0">
                         <div className="relative flex items-center gap-8 md:gap-10 pr-6">
 
-                            {/* Arch Image (Now dynamic based on category!) */}
+                            {/* Arch Image */}
                             <div className="relative w-[380px] xl:w-[450px]">
                                 {/* Gold Offset Wireframe Border */}
                                 <div className="absolute inset-[-15px] border border-[#E6B15F]/40 rounded-t-[1000px] z-0 pointer-events-none"></div>
@@ -202,9 +209,9 @@ export default function MenuSection() {
                 <p className={`${urbanist.className} text-white text-[16px] md:text-[18px] mb-8`}>
                     During winter daily from <span className="text-[#E6B15F]">7:00 pm</span> to <span className="text-[#E6B15F]">9:00 pm</span>
                 </p>
-                <button className={`${urbanist.className} px-8 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300`}>
+                <Link href={'/Menu'}><button className={`${urbanist.className} px-8 py-4 border border-[#E6B15F] text-[#E6B15F] text-[13px] font-bold tracking-[0.15em] uppercase hover:bg-[#E6B15F] hover:text-[#111] transition-all duration-300 cursor-pointer`}>
                     View All Menu
-                </button>
+                </button></Link>
             </div>
 
         </section>
